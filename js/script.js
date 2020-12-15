@@ -4,6 +4,8 @@ var whiteList = ['gabriel@example.it', 'jose@example.it', 'alessandra@example.it
 
 console.log(whiteList);
 
+var closePage;
+
 var email = prompt('Ciao, inserisci quì il tuo indirizzo email per vedere se sei nella whitelist.');
 
 while (email.includes('@') === false) {
@@ -58,12 +60,12 @@ for (var i = 0; i < whiteList.length; i++) {
     //In caso di risposta N
     if (game === 'N') {
       alert('Grazie per aver giocato! Alla prossima! ( ^_^)／" ');
-      var closePage = true;//validazione che evita il messaggio INTRUDER
+      closePage = true;//validazione che evita il messaggio INTRUDER
     }
   }
 }
 
-if (closePage !== true) {//validazione che evita che il messaggio INTRUDER si attivi
+if (!closePage) {//validazione che evita che il messaggio INTRUDER si attivi
   for (var i = 0; i < whiteList.length; i++) {//attivazione del messaggio in caso di sbaglio credenziali per la whiteList
     if (whiteList[i] !== email) {
       alert('INTRUDER!');
