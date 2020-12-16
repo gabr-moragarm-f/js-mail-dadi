@@ -18,8 +18,6 @@ for (var i = 0; i < whiteList.length; i++) {
   if (whiteList[i] === email) {
     alert('Benvenuto/a');
 
-    var i = whiteList.length;
-
     //Inizio del gioco----------------------------------------------------------
     var game = prompt('Vuoi giocare a dadi? Digita "Y" per Sì e "N" per No');
 
@@ -66,11 +64,11 @@ for (var i = 0; i < whiteList.length; i++) {
 }
 
 if (!closePage) {//validazione che evita che il messaggio INTRUDER si attivi
-  for (var i = 0; i < whiteList.length; i++) {//attivazione del messaggio in caso di sbaglio credenziali per la whiteList
+  for (var i = 0; i < whiteList.length && !closePage; i++) {//attivazione del messaggio in caso di sbaglio credenziali per la whiteList
     if (whiteList[i] !== email) {
       alert('INTRUDER!');
 
-      var i = whiteList.length;
+      closePage = true;//validazione che evita il messaggio INTRUDER si ripeta
     }
   }
 }
